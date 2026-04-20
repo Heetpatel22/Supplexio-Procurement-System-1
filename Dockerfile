@@ -2,7 +2,7 @@ FROM tomcat:9.0
 
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-COPY Supplexio-Procurement-System-1.war /usr/local/tomcat/webapps/ROOT.war
+COPY yourproject.war /usr/local/tomcat/webapps/ROOT.war
 
 # IMPORTANT LINE
 ENV PORT 8080

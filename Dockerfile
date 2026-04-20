@@ -1,10 +1,12 @@
 FROM tomcat:9.0
 
-# Remove default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy your WAR file
-COPY yourproject.war /usr/local/tomcat/webapps/ROOT.war
+COPY Supplexio-Procurement-System-1.war /usr/local/tomcat/webapps/ROOT.war
+
+# IMPORTANT LINE
+ENV PORT 8080
 
 EXPOSE 8080
+
 CMD ["catalina.sh", "run"]

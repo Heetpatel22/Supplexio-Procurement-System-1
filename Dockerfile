@@ -1,11 +1,13 @@
 FROM tomcat:9.0
 
+# Clear default apps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
+# Copy your pre-compiled war file from git into Tomcat
 COPY yourproject.war /usr/local/tomcat/webapps/ROOT.war
 
-# IMPORTANT LINE
-ENV PORT 8080
+# Force Tomcat's server.xml to use port 8080 dynamically 
+RUN sed -i 's/port="8080"/port="8080"/g' /usr/local/tomcat/conf/server.xml
 
 EXPOSE 8080
 
